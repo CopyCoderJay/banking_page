@@ -30,7 +30,7 @@ export const DigitalBanking: React.FC = () => {
     { isStar: true },
   ];
 
-  const repeatedItems = [...tickerItems, ...tickerItems, ...tickerItems];
+  const repeatedItems = [...tickerItems, ...tickerItems];
 
   return (
     <section className={styles.digitalSection}>

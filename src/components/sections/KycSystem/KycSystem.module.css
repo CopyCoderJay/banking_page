@@ -1,0 +1,401 @@
+.kycSection {
+  background: var(--bg-primary);
+  width: 100%;
+  padding: 100px 0;
+  position: relative;
+  overflow: hidden;
+  z-index: 10;
+}
+
+/* Grid Layout */
+.kycGrid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  align-items: center;
+  gap: 60px;
+}
+
+/* Left Column Styling */
+.leftCol {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.laptopContainer {
+  position: relative;
+  width: 100%;
+  transform: translateX(-140px); /* Crop left half off screen! */
+  transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.laptopContainer:hover {
+  transform: translateX(-80px); /* Interactive peek effect! */
+}
+
+.laptopScreen {
+  border: 2px solid #0082f3;
+  border-radius: 16px 16px 0 0;
+  overflow: hidden;
+  background: rgba(10, 20, 30, 0.65);
+  backdrop-filter: blur(20px) saturate(180%);
+  box-shadow: 0 0 40px rgba(0, 130, 243, 0.25);
+}
+
+.laptopBase {
+  height: 14px;
+  background: #02080c;
+  border: 2px solid #0082f3;
+  border-radius: 0 0 20px 20px;
+  border-top: none;
+  width: 106%;
+  margin-left: -3%;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+  position: relative;
+  z-index: 20;
+}
+
+@media (max-width: 1024px) {
+  .laptopContainer {
+    transform: translateX(0); /* Center on tablet/mobile! */
+  }
+  
+  .laptopContainer:hover {
+    transform: translateX(0);
+  }
+}
+
+/* Right Column Styling */
+.rightCol {
+  display: flex;
+  flex-direction: column;
+}
+
+.mainTitle {
+  font-size: 38px;
+  font-weight: 500;
+  line-height: 1.2;
+  color: #ffffff;
+  margin-bottom: 32px;
+  letter-spacing: -0.02em;
+}
+
+.listSubtitle {
+  font-size: 16px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 24px;
+  letter-spacing: 0.02em;
+}
+
+/* Checklist 2-Column Grid */
+.checklist {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px 24px;
+}
+
+.checkItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.checkIconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.pointText {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.5;
+}
+
+.checkItem:hover .pointText {
+  color: #ffffff;
+}
+
+/* ----------------------------------------------------
+   KYC DASHBOARD COMPONENT STYLES
+   ---------------------------------------------------- */
+.dashboardContainer {
+  width: 100%;
+  color: #ffffff;
+  padding: 16px;
+}
+
+.dashHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  padding-bottom: 12px;
+  margin-bottom: 16px;
+}
+
+.searchBar {
+  font-size: 10px;
+  color: var(--text-muted);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 6px 14px;
+  border-radius: 6px;
+}
+
+.dashNavRight {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.bellIcon {
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.profileIndicator {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.profileDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #10b981;
+}
+
+.profileText {
+  font-size: 9px;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.dashMain {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 16px;
+}
+
+.dashOverview {
+  display: flex;
+  flex-direction: column;
+}
+
+.sectionTitle {
+  font-size: 13px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 2px;
+}
+
+.sectionSubtitle {
+  font-size: 8px;
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+}
+
+.statsOverviewRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.overviewBox {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  border-radius: 10px;
+  padding: 10px 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.overviewVal {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.overviewLabel {
+  font-size: 7.5px;
+  color: var(--text-secondary);
+  text-align: center;
+  margin-top: 2px;
+}
+
+/* Trends Chart */
+.trendsCard {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  border-radius: 10px;
+  padding: 12px;
+}
+
+.trendsGraphic {
+  width: 100%;
+  height: 70px;
+  display: flex;
+  align-items: flex-end;
+}
+
+.trendsSvg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Failed Records Sidebar Drawer */
+.drawerSidebar {
+  background: rgba(239, 68, 68, 0.02);
+  border: 1px solid rgba(239, 68, 68, 0.08);
+  border-radius: 12px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: inset 0 0 12px rgba(239, 68, 68, 0.02);
+}
+
+.drawerHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(239, 68, 68, 0.1);
+  padding-bottom: 8px;
+  margin-bottom: 12px;
+}
+
+.drawerTitle {
+  font-size: 11px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 2px;
+}
+
+.drawerSub {
+  font-size: 8px;
+  color: var(--text-secondary);
+}
+
+.drawerCount {
+  font-size: 8px;
+  padding: 2px 5px;
+}
+
+.drawerList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 220px;
+  overflow-y: auto;
+}
+
+.drawerItem {
+  background: rgba(255, 255, 255, 0.015);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  border-radius: 8px;
+  padding: 10px;
+  position: relative;
+}
+
+.itemTop {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 4px;
+}
+
+.itemIndex {
+  font-size: 9px;
+  font-weight: 700;
+  color: #ef4444;
+}
+
+.itemName {
+  font-size: 9px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.itemError {
+  font-size: 8px;
+  color: var(--text-secondary);
+  line-height: 1.3;
+}
+
+.itemErrorDetails {
+  font-size: 7.5px;
+  color: var(--text-muted);
+}
+
+.updateBtn {
+  font-size: 7.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #00baff;
+  background: rgba(0, 186, 255, 0.05);
+  border: 1px solid rgba(0, 186, 255, 0.15);
+  padding: 3px 8px;
+  border-radius: 4px;
+  margin-top: 8px;
+  align-self: flex-start;
+  transition: all 0.2s ease;
+}
+
+.updateBtn:hover {
+  background: #0082f3;
+  color: #ffffff;
+  border-color: transparent;
+}
+
+/* ----------------------------------------------------
+   MEDIA QUERY RESPONSIVENESS
+   ---------------------------------------------------- */
+@media (max-width: 1024px) {
+  .kycGrid {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+  
+  .rightCol {
+    text-align: center;
+    align-items: center;
+  }
+  
+  .mainTitle {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  .checklist {
+    grid-template-columns: 1fr;
+    text-align: left;
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .dashMain {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .kycSection {
+    padding: 80px 0;
+  }
+  
+  .mainTitle {
+    font-size: 28px !important;
+    line-height: 1.25 !important;
+  }
+  
+  .listSubtitle {
+    font-size: 15px !important;
+  }
+}

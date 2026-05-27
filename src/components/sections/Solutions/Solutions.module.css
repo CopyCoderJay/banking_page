@@ -1,0 +1,170 @@
+.solutionsSection {
+  background: var(--bg-primary);
+  width: 100%;
+  padding: 100px 0;
+  position: relative;
+  z-index: 10;
+}
+
+.solutionsGrid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  align-items: flex-start;
+  gap: 60px;
+}
+
+/* Left Column Styling */
+.leftCol {
+  position: sticky;
+  top: 140px;
+}
+
+.mainTitle {
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 1.2;
+  color: #ffffff;
+  margin-bottom: 32px;
+  letter-spacing: -0.02em;
+}
+
+.ctaBtn {
+  min-width: 180px;
+}
+
+/* Right Column (Cards Grid) */
+.cardsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+/* Solution Card Container */
+.card {
+  padding: 32px;
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.iconWrapper {
+  position: relative;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 28px;
+}
+
+.iconGlow {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  width: 80%;
+  height: 80%;
+  border-radius: 50%;
+  filter: blur(14px);
+  opacity: 0.4;
+  z-index: 1;
+}
+
+.iconContainer {
+  position: relative;
+  z-index: 2;
+  color: #ffffff;
+}
+
+.titleRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.cardTitle {
+  font-size: 18px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.cardBadge {
+  font-size: 9px;
+  padding: 3px 6px;
+}
+
+.cardDescription {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin-bottom: 28px;
+  flex: 1;
+}
+
+.learnMore {
+  display: inline-flex;
+  align-items: center;
+  font-size: 11px;
+  font-weight: 700;
+  color: #00baff;
+  letter-spacing: 0.1em;
+  gap: 6px;
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  position: relative;
+  width: fit-content;
+}
+
+.learnMore:hover {
+  color: #33c8ff;
+}
+
+.learnMore:hover .arrow {
+  transform: translateX(4px);
+}
+
+.arrow {
+  transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* ----------------------------------------------------
+   MEDIA QUERY RESPONSIVENESS
+   ---------------------------------------------------- */
+@media (max-width: 1024px) {
+  .solutionsGrid {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+  
+  .leftCol {
+    position: relative;
+    top: 0;
+  }
+  
+  .mainTitle {
+    font-size: 34px;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .cardsGrid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  
+  .card {
+    padding: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .solutionsSection {
+    padding: 80px 0;
+  }
+  
+  .mainTitle {
+    font-size: 28px !important;
+    line-height: 1.25 !important;
+  }
+}

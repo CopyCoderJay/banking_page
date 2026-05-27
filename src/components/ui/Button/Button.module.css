@@ -1,0 +1,98 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border-radius: 8px;
+  padding: 16px 32px;
+  cursor: pointer;
+  transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+  position: relative;
+  overflow: hidden;
+  gap: 8px;
+}
+
+/* Primary blue gradient button */
+.primary {
+  background: linear-gradient(90deg, #0082f3 0%, #0053c6 100%);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 4px 20px 0 rgba(0, 130, 243, 0.3);
+}
+
+.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px 0 rgba(0, 130, 243, 0.5);
+  background: linear-gradient(90deg, #0091ff 0%, #0062eb 100%);
+}
+
+.primary:active {
+  transform: translateY(0);
+}
+
+/* Outline button */
+.outline {
+  background: transparent;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(10px);
+}
+
+.outline:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.03);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px -10px rgba(0, 0, 0, 0.5);
+}
+
+.outline:active {
+  transform: translateY(0);
+}
+
+/* Cyan Link button with simple hover underline and dynamic icon translate */
+.cyanLink {
+  background: transparent;
+  color: #00baff;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 8px 0;
+  border-radius: 0;
+  border: none;
+  gap: 6px;
+}
+
+.cyanLink::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #00baff;
+  transform-origin: bottom right;
+  transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.cyanLink:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.cyanLink:hover {
+  color: #33c8ff;
+}
+
+.cyanLink:hover svg {
+  transform: translateX(4px);
+}
+
+.cyanLink svg {
+  transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}

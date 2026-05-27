@@ -1,0 +1,625 @@
+.heroSection {
+  position: relative;
+  width: 100%;
+  background: var(--bg-primary);
+  padding: 180px 0 100px;
+  overflow: hidden;
+  z-index: 10;
+}
+
+/* Ambient backdrop glows */
+.blueGlow {
+  position: absolute;
+  top: 15%;
+  right: 10%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(0, 130, 243, 0.15) 0%, rgba(0,0,0,0) 70%);
+  filter: blur(50px);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.tealGlow {
+  position: absolute;
+  top: 40%;
+  left: 5%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(0, 186, 255, 0.08) 0%, rgba(0,0,0,0) 70%);
+  filter: blur(60px);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Grid Layout */
+.heroGrid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: 60px;
+  z-index: 10;
+  position: relative;
+}
+
+/* Left Column Styling */
+.leftCol {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.mainTitle {
+  font-size: 60px;
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+  margin-bottom: 24px;
+}
+
+.subtitle {
+  font-size: 18px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 40px;
+}
+
+.ctaGroup {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.primaryCta {
+  box-shadow: 0 4px 20px 0 rgba(0, 130, 243, 0.35);
+}
+
+.outlineCta {
+  min-width: 170px;
+}
+
+/* Right Mockup Column Styling */
+.rightCol {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+.mockupWrapper {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  aspect-ratio: 1.15;
+  margin-right: 40px;
+}
+
+/* Neon glow behind mockup image */
+.imageGlowRing {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  right: -5%;
+  bottom: -5%;
+  background: radial-gradient(circle, rgba(0, 130, 243, 0.35) 0%, rgba(0, 186, 255, 0.15) 30%, rgba(0,0,0,0) 70%);
+  filter: blur(40px);
+  z-index: -1;
+  animation: pulseGlow 8s infinite ease-in-out;
+}
+
+.imageBorderMask {
+  width: 100%;
+  height: 100%;
+  border-radius: 40px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: var(--card-shadow);
+  background: #03111b;
+}
+
+.mockupImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.02);
+  transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.mockupWrapper:hover .mockupImage {
+  transform: scale(1.06);
+}
+
+/* Absolute Floating Glass Cards overlays */
+.balanceCardOverlay {
+  position: absolute;
+  top: -30px;
+  right: -70px;
+  width: 250px;
+  z-index: 30;
+  animation: scaleUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+  opacity: 0;
+}
+
+.activityCardOverlay {
+  position: absolute;
+  bottom: -30px;
+  left: -80px;
+  width: 260px;
+  z-index: 35;
+  animation: scaleUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
+  opacity: 0;
+}
+
+/* ----------------------------------------------------
+   ATOMIC COMPONENT MODULE CARD CLASSES
+   ---------------------------------------------------- */
+
+/* 1. BalanceCard CSS styles */
+.balanceCard {
+  background: #ffffff !important;
+  backdrop-filter: blur(30px) saturate(200%) !important;
+  -webkit-backdrop-filter: blur(30px) saturate(200%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.6) !important;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25) !important;
+  padding: 20px;
+  border-radius: 24px;
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.userInfo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.avatar {
+  border-radius: 50%;
+  border: 1.5px solid rgba(0, 0, 0, 0.1);
+  object-fit: cover;
+}
+
+.userName {
+  font-size: 14px;
+  font-weight: 700;
+  color: #0b1520;
+}
+
+.greeting {
+  font-size: 11px;
+  color: #506579;
+}
+
+.notificationBtn {
+  position: relative;
+  background: rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #506579;
+  transition: var(--transition-fast);
+}
+
+.notificationBtn:hover {
+  background: rgba(0, 0, 0, 0.08);
+  color: #0b1520;
+}
+
+.activeDot {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 6px;
+  height: 6px;
+  background-color: #ef4444;
+  border-radius: 50%;
+}
+
+.balanceSection {
+  margin-bottom: 24px;
+}
+
+.balanceLabel {
+  font-size: 11px;
+  color: #506579;
+  margin-bottom: 4px;
+}
+
+.balanceAmount {
+  font-size: 20px;
+  font-weight: 700;
+  color: #0053c6;
+}
+
+.currency {
+  font-size: 12px;
+  font-weight: 500;
+  color: #506579;
+}
+
+.actionDock {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.actionItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  flex: 1;
+}
+
+.actionIconBtn {
+  background: rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 10px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0b1520;
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.actionIconBtn:hover {
+  background: linear-gradient(135deg, #0082f3 0%, #0053c6 100%);
+  border-color: transparent;
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.actionLabel {
+  font-size: 9px;
+  font-weight: 600;
+  color: #506579;
+  white-space: nowrap;
+}
+
+/* 2. RecentActivityCard CSS styles */
+.activityCard {
+  background: #ffffff !important;
+  backdrop-filter: blur(30px) saturate(200%) !important;
+  -webkit-backdrop-filter: blur(30px) saturate(200%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.6) !important;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25) !important;
+  padding: 20px;
+  border-radius: 24px;
+}
+
+.activityTitle {
+  font-size: 14px;
+  font-weight: 700;
+  color: #0b1520;
+  margin-bottom: 16px;
+}
+
+.tabList {
+  display: flex;
+  background: rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 10px;
+  padding: 3px;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.tabBtn {
+  font-size: 9px;
+  font-weight: 700;
+  color: #506579;
+  padding: 6px 8px;
+  border-radius: 8px;
+  transition: var(--transition-fast);
+  white-space: nowrap;
+}
+
+.activeTab {
+  background: #0053c6;
+  color: #ffffff;
+}
+
+.transactionRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.transLeft {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.arrowCircle {
+  background: #8b5cf6;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(139, 92, 246, 0.3);
+}
+
+.transName {
+  font-size: 12px;
+  font-weight: 700;
+  color: #0b1520;
+  margin-bottom: 2px;
+}
+
+.transDate {
+  font-size: 9px;
+  color: #506579;
+}
+
+.transRight {
+  display: flex;
+  align-items: center;
+}
+
+.transAmount {
+  font-size: 13px;
+  font-weight: 700;
+  color: #0b1520;
+}
+
+/* ----------------------------------------------------
+   LOGO CLOUD STYLES
+   ---------------------------------------------------- */
+.logoCloudContainer {
+  margin-top: 100px;
+  z-index: 10;
+  position: relative;
+}
+
+.trustedTitle {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 28px;
+  letter-spacing: 0.02em;
+}
+
+.logoGrid {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.logoItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.brandLogo {
+  color: rgba(255, 255, 255, 0.25);
+  transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.brandLogo:hover {
+  color: rgba(255, 255, 255, 0.85);
+  transform: scale(1.05);
+}
+
+/* ----------------------------------------------------
+   MEDIA QUERY RESPONSIVENESS
+   ---------------------------------------------------- */
+@media (max-width: 1024px) {
+  .mainTitle {
+    font-size: 48px;
+  }
+  
+  .balanceCardOverlay {
+    right: -30px;
+  }
+  
+  .activityCardOverlay {
+    left: -40px;
+  }
+}
+
+@media (max-width: 900px) {
+  .heroGrid {
+    grid-template-columns: 1fr;
+    gap: 80px;
+    text-align: center;
+  }
+  
+  .leftCol {
+    align-items: center;
+  }
+  
+  .rightCol {
+    margin-top: 40px;
+  }
+  
+  .mockupWrapper {
+    margin-right: 0;
+  }
+  
+  .logoGrid {
+    justify-content: center;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroSection {
+    padding: 130px 0 60px;
+  }
+  
+  .mainTitle {
+    font-size: 34px;
+  }
+  
+  .subtitle {
+    font-size: 15px;
+  }
+  
+  .ctaGroup {
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+  }
+  
+  .primaryCta, .outlineCta {
+    width: 100%;
+  }
+  
+  .rightCol {
+    margin-top: 20px;
+  }
+  
+  .mockupWrapper {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    height: auto !important;
+    aspect-ratio: auto !important;
+    margin: 30px auto 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .imageBorderMask {
+    display: block;
+    width: 100%;
+    max-width: 320px;
+    aspect-ratio: 1.4375 !important;
+    height: auto !important;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: #03111b;
+  }
+  
+  .balanceCardOverlay {
+    position: relative;
+    top: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    max-width: 320px !important;
+    z-index: 30;
+    opacity: 1;
+    transform: none !important;
+    animation: scaleUp 0.8s ease forwards;
+  }
+  
+  .activityCardOverlay {
+    position: relative;
+    bottom: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    max-width: 320px !important;
+    z-index: 35;
+    opacity: 1;
+    transform: none !important;
+    animation: scaleUp 0.8s ease forwards;
+  }
+  
+  /* Modern proportional stacking spacing for mobile cards */
+  .balanceCard, .activityCard {
+    padding: 18px !important;
+    border-radius: 20px !important;
+  }
+  
+  .balanceAmount {
+    font-size: 16px !important;
+  }
+  
+  .avatar {
+    width: 32px !important;
+    height: 32px !important;
+  }
+  
+  .userName {
+    font-size: 12px !important;
+  }
+  
+  .actionIconBtn {
+    width: 30px !important;
+    height: 30px !important;
+  }
+  
+  .actionLabel {
+    font-size: 8px !important;
+  }
+  
+  .activityTitle {
+    font-size: 12px !important;
+    margin-bottom: 10px !important;
+  }
+  
+  .tabList {
+    padding: 2px !important;
+    margin-bottom: 12px !important;
+    border-radius: 6px !important;
+  }
+  
+  .tabBtn {
+    font-size: 8px !important;
+    padding: 4px 6px !important;
+    border-radius: 4px !important;
+  }
+  
+  .arrowCircle {
+    width: 24px !important;
+    height: 24px !important;
+  }
+  
+  .transName {
+    font-size: 10px !important;
+  }
+  
+  .transAmount {
+    font-size: 11px !important;
+  }
+  
+  .logoCloudContainer {
+    margin-top: 50px;
+  }
+}
+
+/* Keyframes scoped to Hero.module.css for local animations */
+@keyframes scaleUp {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.05);
+  }
+}

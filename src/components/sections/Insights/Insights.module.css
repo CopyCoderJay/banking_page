@@ -1,0 +1,277 @@
+.insightsSection {
+  position: relative;
+  width: 100%;
+  background-color: #030b14;
+  padding: 120px 0;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.sectionLayout {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 60px;
+  align-items: flex-start;
+}
+
+/* Left Column Styling */
+.leftCol {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  position: sticky;
+  top: 120px;
+}
+
+.title {
+  font-family: 'Satoshi', sans-serif;
+  font-size: 48px;
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+  margin: 0;
+}
+
+.ctaWrapper {
+  margin-top: 10px;
+}
+
+.insightsCta {
+  border-color: rgba(255, 255, 255, 0.15) !important;
+  color: #ffffff !important;
+  padding: 12px 36px !important;
+  border-radius: 4px !important;
+  font-weight: 700 !important;
+  background: transparent !important;
+  transition: all 0.3s ease !important;
+}
+
+.insightsCta:hover {
+  background: #ffffff !important;
+  color: #030b14 !important;
+  border-color: #ffffff !important;
+  transform: translateY(-2px);
+}
+
+/* Right Column Styling */
+.rightCol {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* Featured Card */
+.featuredCard {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.featuredCard:hover {
+  transform: translateY(-4px);
+  border-color: rgba(0, 130, 243, 0.35);
+  box-shadow: 0 20px 40px rgba(0, 130, 243, 0.05);
+}
+
+/* Cover Art with Stars */
+.coverArt {
+  background: #000c17;
+  height: 240px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.starGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+}
+
+.crossStar {
+  width: 44px;
+  height: 44px;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.featuredCard:hover .crossStar {
+  transform: scale(1.12) rotate(15deg);
+}
+
+/* Content Layout inside Cards */
+.cardContent {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.articleTag {
+  font-family: 'Satoshi', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  color: #0082f3;
+  letter-spacing: 0.1em;
+}
+
+.featuredTitle {
+  font-family: 'Satoshi', sans-serif;
+  font-size: 26px;
+  font-weight: 500;
+  line-height: 1.3;
+  color: #ffffff;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.cardFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding-top: 20px;
+}
+
+.authorMeta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Satoshi', sans-serif;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.authorName {
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.bullet {
+  color: rgba(255, 255, 255, 0.2);
+}
+
+.publishDate {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.readMoreBtn {
+  font-family: 'Satoshi', sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+  padding: 10px 24px !important;
+  border-radius: 4px !important;
+  letter-spacing: 0.05em !important;
+  background: transparent !important;
+  transition: all 0.3s ease !important;
+}
+
+.readMoreBtn:hover {
+  background: #ffffff !important;
+  color: #030b14 !important;
+  border-color: #ffffff !important;
+}
+
+/* Compact Grid */
+.compactGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+.compactCard {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.compactCard:hover {
+  transform: translateY(-4px);
+  border-color: rgba(0, 130, 243, 0.35);
+  box-shadow: 0 20px 40px rgba(0, 130, 243, 0.05);
+}
+
+.compactCard .cardContent {
+  padding: 24px;
+}
+
+.compactTitle {
+  font-family: 'Satoshi', sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: #ffffff;
+  margin: 0;
+  letter-spacing: -0.01em;
+  min-height: 52px;
+}
+
+/* ====================================================
+   RESPONSIVENESS
+   ==================================================== */
+@media (max-width: 1024px) {
+  .sectionLayout {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+  
+  .leftCol {
+    position: relative;
+    top: 0;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+  }
+  
+  .title {
+    font-size: 38px;
+  }
+}
+
+@media (max-width: 768px) {
+  .compactGrid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .featuredTitle {
+    font-size: 22px;
+  }
+  
+  .coverArt {
+    height: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .insightsSection {
+    padding: 80px 0;
+  }
+  
+  .title {
+    font-size: 30px;
+  }
+  
+  .cardFooter {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  
+  .readMoreBtn {
+    width: 100%;
+    text-align: center;
+  }
+}

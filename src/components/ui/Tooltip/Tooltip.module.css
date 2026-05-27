@@ -1,0 +1,76 @@
+.tooltipContainer {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltipBox {
+  position: absolute;
+  background: rgba(15, 23, 42, 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 500;
+  white-space: nowrap;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  z-index: 100;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s ease, transform 0.25s cubic-bezier(0.25, 1, 0.5, 1);
+  pointer-events: none;
+}
+
+/* Arrow indicator */
+.arrow {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-style: solid;
+}
+
+/* Positions */
+.top {
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  margin-bottom: 8px;
+}
+
+.top .arrow {
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 5px 5px 0 5px;
+  border-color: rgba(15, 23, 42, 0.95) transparent transparent transparent;
+}
+
+.bottom {
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-4px);
+  margin-top: 8px;
+}
+
+.bottom .arrow {
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 0 5px 5px 5px;
+  border-color: transparent transparent rgba(15, 23, 42, 0.95) transparent;
+}
+
+/* Hover reveal triggers */
+.tooltipContainer:hover .tooltipBox {
+  opacity: 1;
+  visibility: visible;
+}
+
+.tooltipContainer:hover .top {
+  transform: translateX(-50%) translateY(0);
+}
+
+.tooltipContainer:hover .bottom {
+  transform: translateX(-50%) translateY(0);
+}

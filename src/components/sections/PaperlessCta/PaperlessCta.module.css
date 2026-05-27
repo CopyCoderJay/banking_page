@@ -1,0 +1,195 @@
+.ctaSection {
+  background: var(--bg-primary);
+  width: 100%;
+  padding: 100px 0 0 0; /* No bottom padding so ticker is flush at absolute bottom */
+  position: relative;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.ambientGlow {
+  position: absolute;
+  left: 50%;
+  top: 30%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(0, 130, 243, 0.1) 0%, rgba(0,0,0,0) 70%);
+  filter: blur(50px);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Banner Card Styling */
+.bannerCard {
+  padding: 60px;
+  border-radius: 32px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(10, 20, 30, 0.45);
+  margin-bottom: 80px;
+}
+
+/* Backing giant decorative CB7 glyph strokes */
+.bgGlyph {
+  position: absolute;
+  right: 5%;
+  bottom: -40px;
+  font-size: 280px;
+  font-weight: 900;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(0, 130, 243, 0.035);
+  line-height: 1;
+  user-select: none;
+  pointer-events: none;
+  z-index: 1;
+  font-family: var(--font-outfit);
+}
+
+.bannerContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  position: relative;
+  z-index: 10;
+}
+
+/* Copy Area Styling */
+.copyArea {
+  display: flex;
+  flex-direction: column;
+}
+
+.bannerTitle {
+  font-size: 38px;
+  font-weight: 700;
+  line-height: 1.25;
+  color: #ffffff;
+  margin-bottom: 16px;
+  letter-spacing: -0.02em;
+}
+
+.bannerSubtitle {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* Action Buttons Styling */
+.actionArea {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-shrink: 0;
+}
+
+.outlineBtn {
+  min-width: 170px;
+}
+
+.primaryBtn {
+  min-width: 170px;
+  box-shadow: 0 4px 20px 0 rgba(0, 130, 243, 0.35);
+}
+
+/* ----------------------------------------------------
+   INFINITE SCROLLING TICKER MARQUEE STYLES
+   ---------------------------------------------------- */
+.tickerContainer {
+  background-color: #ffffff;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  padding: 32px 0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.2);
+}
+
+.tickerWrapper {
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+}
+
+.tickerTrack {
+  display: flex;
+  gap: 60px;
+  align-items: center;
+  width: max-content;
+  animation: marqueeScroll 35s linear infinite;
+  padding-left: 30px;
+}
+
+/* Hovering pause interaction */
+.tickerContainer:hover .tickerTrack {
+  animation-play-state: paused;
+}
+
+.tickerItem {
+  font-size: 26px;
+  font-weight: 800;
+  color: #0b1520;
+  white-space: nowrap;
+  letter-spacing: -0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.accentItem {
+  color: #0082f3;
+}
+
+.starItem {
+  color: #8b5cf6;
+  font-size: 20px;
+}
+
+/* ----------------------------------------------------
+   MEDIA QUERY RESPONSIVENESS
+   ---------------------------------------------------- */
+@media (max-width: 1024px) {
+  .bannerContent {
+    flex-direction: column;
+    text-align: center;
+    gap: 32px;
+  }
+  
+  .bannerCard {
+    padding: 40px;
+  }
+  
+  .actionArea {
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .bannerTitle {
+    font-size: 28px;
+  }
+  
+  .bannerSubtitle {
+    font-size: 13px;
+  }
+  
+  .actionArea {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .outlineBtn, .primaryBtn {
+    width: 100%;
+  }
+  
+  .tickerItem {
+    font-size: 20px;
+  }
+}

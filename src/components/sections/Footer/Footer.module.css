@@ -1,0 +1,202 @@
+.footerSection {
+  position: relative;
+  width: 100%;
+  background-color: #030c14;
+  padding: 100px 0 40px 0;
+  overflow: hidden;
+  z-index: 10;
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+/* Upper Footer Layout */
+.upperFooter {
+  display: grid;
+  grid-template-columns: 0.7fr 1.3fr;
+  gap: 60px;
+  align-items: flex-start;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding-bottom: 60px;
+  margin-bottom: 60px;
+}
+
+.logoCol {
+  display: flex;
+  align-items: center;
+}
+
+.giantLogo {
+  font-family: 'Satoshi', sans-serif;
+  font-size: 155px;
+  font-weight: 900;
+  background: linear-gradient(180deg, #00baff 0%, #0082f3 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 0.75;
+  letter-spacing: -0.06em;
+  user-select: none;
+}
+
+.locationsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.locationCard {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.locationTitle {
+  font-family: 'Satoshi', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.02em;
+  margin: 0;
+}
+
+.locationAddress {
+  font-family: 'Satoshi', sans-serif;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.45);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Middle Footer Layout */
+.middleFooter {
+  display: grid;
+  grid-template-columns: 0.7fr 1.3fr;
+  gap: 60px;
+  align-items: flex-start;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding-bottom: 60px;
+  margin-bottom: 40px;
+}
+
+.logoSpacer {
+  display: block;
+}
+
+.linksGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.linkColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.columnTitle {
+  font-family: 'Satoshi', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.02em;
+  margin: 0;
+}
+
+.linkList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footerLink {
+  font-family: 'Satoshi', sans-serif;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.45);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+.footerLink:hover {
+  color: #ffffff;
+}
+
+.linkArrow {
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: all 0.2s ease;
+}
+
+.footerLink:hover .linkArrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Bottom Footer Layout */
+.bottomFooter {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.copyrightText {
+  font-family: 'Satoshi', sans-serif;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.25);
+  line-height: 1.8;
+  max-width: 860px;
+  margin: 0;
+}
+
+/* ====================================================
+   RESPONSIVENESS
+   ==================================================== */
+@media (max-width: 1024px) {
+  .upperFooter {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .giantLogo {
+    font-size: 120px;
+  }
+  
+  .middleFooter {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .logoSpacer {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .locationsGrid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  
+  .linksGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+  }
+  
+  .footerSection {
+    padding: 80px 0 30px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .linksGrid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  
+  .giantLogo {
+    font-size: 100px;
+  }
+}

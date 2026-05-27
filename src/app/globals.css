@@ -1,11 +1,11 @@
-@import url('https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700,900&display=swap');
-
 /* N7 - Premium Banking Landing Page - Global Styles & Design System */
+/* Font: Archivo — loaded via next/font/google in layout.tsx for optimal performance */
+
 
 :root {
-  --bg-primary: #02080c;
-  --bg-secondary: #03111b;
-  --text-primary: #ffffff;
+  --bg-primary: #010D12;
+  --bg-secondary: #011219;
+  --text-primary: #e9f4f9;
   --text-secondary: #94a3b8;
   --text-muted: #52677a;
   --accent-blue: #0082f3;
@@ -35,7 +35,7 @@
 html, body {
   background-color: var(--bg-primary);
   color: var(--text-primary);
-  font-family: 'Satoshi', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-family: var(--font-archivo), 'Archivo', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   overflow-x: hidden;
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;

@@ -41,6 +41,11 @@ export const Hero: React.FC = () => {
           <div className={`${styles.rightCol} animate-scale-up`}>
             {/* The main picture with rounded borders and glow shadow background */}
             <div className={styles.mockupWrapper}>
+              {/* Vibrant backdrop ambient lights */}
+              <div className={styles.glowLight1} />
+              <div className={styles.glowLight2} />
+              <div className={styles.glowLight3} />
+              
               <div className={styles.imageGlowRing} />
               <div className={styles.imageBorderMask}>
                 <Image

@@ -20,10 +20,10 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: rgba(20, 30, 40, 0.45);
-  backdrop-filter: blur(25px) saturate(200%);
-  -webkit-backdrop-filter: blur(25px) saturate(200%);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(1, 13, 18, 0.65);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.10);
   border-radius: 100px;
   padding: 10px 24px;
   width: 100%;
@@ -116,14 +116,15 @@
 
 .ctaButton {
   font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
+  font-weight: 600;
+  letter-spacing: 0.06em;
   padding: 10px 24px;
   border: 1px solid rgba(255, 255, 255, 0.25);
   border-radius: 4px;
   color: #ffffff;
   transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
   background: transparent;
+  font-family: 'Archivo', sans-serif;
 }
 
 .ctaButton:hover {

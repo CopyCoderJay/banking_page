@@ -21,11 +21,11 @@ export const CloudCore: React.FC = () => {
           {/* Left Column (Copy and Links) */}
           <div className={`${styles.leftCol} animate-fade-in-up`}>
             <h2 className={styles.mainTitle}>
-              A complete cloud-based <br />
+              A complete cloud-based <br className={styles.desktopBr} />
               core banking.
             </h2>
             <p className={styles.subtitle}>
-              Faster time to market with our cloud-based <br />
+              Faster time to market with our cloud-based <br className={styles.desktopBr} />
               core banking services
             </p>
             <div className={styles.actionsGroup}>
